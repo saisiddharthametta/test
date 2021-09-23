@@ -1,0 +1,259 @@
+Sub RefreshAllPivotTables()
+
+On Error Resume Next
+Dim PT As PivotTable
+Dim WS As Worksheet
+
+    For Each WS In ThisWorkbook.Worksheets
+        For Each PT In WS.PivotTables
+          PT.RefreshTable
+        Next PT
+
+    Next WS
+
+End Sub
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Sub CopyUnique()
+    Dim s1 As Worksheet, s2 As Worksheet
+    Set s1 = Sheets("Historical")
+    Set s2 = Sheets("Attribute options")
+    
+    'Department
+    s1.Range("C:C").Copy s2.Range("B1")
+    s2.Range("B:B").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("B1").Value = "Department"
+    s2.Range("B1").Font.Bold = True
+    s2.Range("B1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("B:B")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Class
+    s1.Range("D:D").Copy s2.Range("C1")
+    s2.Range("C:C").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("C1").Value = "Family Tree - Class"
+    s2.Range("C1").Font.Bold = True
+    s2.Range("C1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("C:C")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Sub Class
+    s1.Range("E:E").Copy s2.Range("D1")
+    s2.Range("D:D").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("D1").Value = "Family Tree - Sub Class"
+    s2.Range("D1").Font.Bold = True
+    s2.Range("D1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("D:D")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Sub Sub Class
+    s1.Range("F:F").Copy s2.Range("E1")
+    s2.Range("E:E").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("E1").Value = "Family Tree - Sub Sub Class"
+    s2.Range("E1").Font.Bold = True
+    s2.Range("E1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("E:E")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Neck Type
+    s1.Range("P:P").Copy s2.Range("F1")
+    s2.Range("F:F").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("F1").Value = "Attributes - Neck Type"
+    s2.Range("F1").Font.Bold = True
+    s2.Range("F1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("F:F")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Fabric Type
+    s1.Range("O:O").Copy s2.Range("G1")
+    s2.Range("G:G").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("G1").Value = "Attributes - Fabric Type"
+    s2.Range("G1").Font.Bold = True
+    s2.Range("G1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("G:G")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    '365 Product
+    s1.Range("K:K").Copy s2.Range("H1")
+    s2.Range("H:H").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("H1").Value = "Attributes - 365 Product"
+    s2.Range("H1").Font.Bold = True
+    s2.Range("H1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("H:H")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'End Use Lifestyle
+    s1.Range("AS:AS").Copy s2.Range("I1")
+    s2.Range("I:I").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("I1").Value = "Attributes - End Use Lifestyle"
+    s2.Range("I1").Font.Bold = True
+    s2.Range("I1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("I:I")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Length Type
+    s1.Range("R:R").Copy s2.Range("J1")
+    s2.Range("J:J").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("J1").Value = "Attributes - Length Type"
+    s2.Range("J1").Font.Bold = True
+    s2.Range("J1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("J:J")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Material
+    s1.Range("S:S").Copy s2.Range("K1")
+    s2.Range("K:K").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("K1").Value = "Attributes - Material"
+    s2.Range("K1").Font.Bold = True
+    s2.Range("K1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("K:K")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Pattern Type
+    s1.Range("U:U").Copy s2.Range("M1")
+    s2.Range("M:M").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("M1").Value = "Attributes - Pattern Type"
+    s2.Range("M1").Font.Bold = True
+    s2.Range("M1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("M:M")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Product Type
+    s1.Range("N:N").Copy s2.Range("N1")
+    s2.Range("N:N").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("N1").Value = "Attributes - Product Type"
+    s2.Range("N1").Font.Bold = True
+    s2.Range("N1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("N:N")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Seasonality
+    s1.Range("M:M").Copy s2.Range("O1")
+    s2.Range("O:O").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("O1").Value = "Attributes - Seasonality"
+    s2.Range("O1").Font.Bold = True
+    s2.Range("O1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("O:O")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Shape Silhouette
+    s1.Range("T:T").Copy s2.Range("P1")
+    s2.Range("P:P").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("P1").Value = "Attributes - Shape Silhouette"
+    s2.Range("P1").Font.Bold = True
+    s2.Range("P1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("P:P")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Sleeve Length
+    s1.Range("Q:Q").Copy s2.Range("Q1")
+    s2.Range("Q:Q").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("Q1").Value = "Attributes - Sleeve Length"
+    s2.Range("Q1").Font.Bold = True
+    s2.Range("Q1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("Q:Q")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Colour
+    s1.Range("I:I").Copy s2.Range("R1")
+    s2.Range("R:R").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("R1").Value = "Attributes - Colour"
+    s2.Range("R1").Font.Bold = True
+    s2.Range("R1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("R:R")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Core_trend
+    s1.Range("J:J").Copy s2.Range("S1")
+    s2.Range("S:S").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("S1").Value = "Core_trend"
+    s2.Range("S1").Font.Bold = True
+    s2.Range("S1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("S:S")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Customer Type
+    s1.Range("AR:AR").Copy s2.Range("T1")
+    s2.Range("T:T").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("T1").Value = "Customer Type"
+    s2.Range("T1").Font.Bold = True
+    s2.Range("T1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("T:T")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Selling Pack
+    s1.Range("W:W").Copy s2.Range("U1")
+    s2.Range("U:U").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("U1").Value = "Selling Pack"
+    s2.Range("U1").Font.Bold = True
+    s2.Range("U1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("U:U")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Price Hierarchy
+    s1.Range("L:L").Copy s2.Range("V1")
+    s2.Range("V:V").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("V1").Value = "Price Hierarchy"
+    s2.Range("V1").Font.Bold = True
+    s2.Range("V1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("V:V")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+    
+    
+    'Fixture Type
+    s1.Range("V:V").Copy s2.Range("W1")
+    s2.Range("W:W").RemoveDuplicates Columns:=1, Header:=xlNo
+    s2.Range("W1").Value = "Fixture Type"
+    s2.Range("W1").Font.Bold = True
+    s2.Range("W1").Interior.Color = RGB(255, 165, 0)
+    With s2.Range("W:W")
+        If WorksheetFunction.CountA(.Cells) > 0 Then .SpecialCells(xlCellTypeBlanks).Delete Shift:=xlShiftUp
+    End With
+End Sub
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+in doAPI()
+Call RefreshAllPivotTables
+
+For CopyUnique() - no need to call I guess
